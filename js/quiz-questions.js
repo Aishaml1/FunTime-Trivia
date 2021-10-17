@@ -8,7 +8,9 @@ const music = [`finish the lyrics. 'You make my earth quake, ridin' around______
 ``
 ]
 
-const movies = []
+const movies = [
+    
+]
 const videoGames = [
     'What is the all time top selling nintendo switch game ?', //mario kart 8 delux
     'Whats are the main characters in kingdom hearts?',

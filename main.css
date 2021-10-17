@@ -1,9 +1,0 @@
-body{
-    display:grid ;
-}
-.icons8-restart { 
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAyNCAyNCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNMiwyaDd2N0wyLDJ6Ij48L3BhdGg+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTEyLDNjNSwwLDksNCw5LDlzLTQsOS05LDlzLTktNC05LTkJYzAtMi43LDEuMi01LjEsMy02LjciPjwvcGF0aD48L3N2Zz4=') 50% 50% no-repeat;
-    background-size: 100%; }
