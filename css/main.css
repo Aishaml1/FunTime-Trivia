@@ -28,30 +28,31 @@ border-radius: 50%;
 justify-self: center;
 width: 100%;
 }
-
-ul{
-list-style: none;   
+#questions{
+border-radius: 20%;
+background-color: rgba(176, 224, 230, 0);
+grid-column: 3 / 5;
+grid-row: 2 / 3;
+justify-self:center;
+width: 85%;
 }
 
-/* Answer box */
-.answers{
+
+#answers{
 grid-column: 3 / 5;
-grid-row: 4 / 6;
+grid-row: 3 / 4 ;
 justify-self: center;
+background-color: rgba(128, 0, 128, 0);
+
 }
 
 #a,#b,#c {
-    border: solid pink;
-    background-color: rgba(176, 224, 230, 0.247);
-    border-radius: 40%;
-    width: 25rem;
-    margin-right: 25px;
-    margin-bottom: 5px;
-    align-content: center;
-    text-align: center;
+border: solid pink;
+background-color: rgba(176, 224, 230, 0.247);
+border-radius: 40%;
+align-content: center;
+text-align: center;
 }
-
-
 
 
 #bMovies{
