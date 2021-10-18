@@ -20,29 +20,30 @@ btn.addEventListener("click", mainCat)
 /*-------------------------------- Functions --------------------------------*/
 //
 function mainCat(evt){
-if(evt.target.id === 'bMusic' ){
-questions = music
-}
-if(evt.target.id === 'bMovies' ){
-    questions = movies
-}
-if(evt.target.id === 'bRandom' ){
+    if(evt.target.id === 'bMusic' ){
+        questions = music
+    }
+    if(evt.target.id === 'bMovies' ){
+        questions = movies
+    }
+    if(evt.target.id === 'bRandom' ){
         questions = random
-}
-if(evt.target.id === 'bVgame'){
-    questions = videoGames
-    console.log(questions)
-}
-randomQ()
+    }
+    if(evt.target.id === 'bVgame'){
+        questions = videoGames
+        console.log(questions)
+    }
+    randomQ()
 }
 // created a function for random questions 
 function randomQ(){ 
-let idx = Math.floor(Math.random()*questions.length);
-console.log(questions[idx])
+    let idx = Math.floor(Math.random()*questions.length);
+    
+    render(idx)
 }
 
 
-// function render(){
-// questionDisplay.innerHTML = 
-// }
+function render(idx){
+questionDisplay.innerHTML = questions[idx].question
+}
 // render()
