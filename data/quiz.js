@@ -183,35 +183,25 @@ const random = [
 
 // map question and return a random question from each category. 
 
-function randomMusicQuestions(){
-    let musicQ = music.map(music => music.question);  
-        return musicQ[Math.floor(Math.random()*musicQ.length)];
+function randomMusicQuestions(){ 
+        return music[Math.floor(Math.random()*music.length)];
 }
         console.log(randomMusicQuestions())
-
 function randomQuestions(){
-    let randomQ = random.map(random => random.question);  
-        return randomQ[Math.floor(Math.random()*randomQ.length)];
+        return random[Math.floor(Math.random()*random.length)];
 }
         console.log(randomQuestions())
 
 
 function randomMoviesQuestions(){
-    let moviesQ = movies.map(movies => movies.question);  
-        return moviesQ[Math.floor(Math.random()*moviesQ.length)];
+        return movies[Math.floor(Math.random()*movies.length)];
 }
-            console.log(randomMoviesQuestions())
+        console.log(randomMoviesQuestions())
 
 function randomGamesQuestions(){
-    let gamesQ = videoGames.map(videoGames => videoGames.question);  
-        return gamesQ[Math.floor(Math.random()*gamesQ.length)];
+        return videoGames[Math.floor(Math.random()*videoGames.length)];
 }
     console.log(randomGamesQuestions())
-
-// get answers alone using map only
-
-
-
 
 
 export{randomMusicQuestions, randomQuestions, randomGamesQuestions,randomMoviesQuestions };

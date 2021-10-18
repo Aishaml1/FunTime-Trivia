@@ -12,6 +12,7 @@ const musicBtn = document.querySelector('#bMusic')
 const moviesBtn = document.querySelector('#bMovies')
 const randomBtn = document.querySelector('#bRandom')
 const vgBtn = document.querySelector('#bVgame')
+const questionDisplay = document.querySelector('#question-display')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -21,11 +22,21 @@ randomBtn.addEventListener("click", getQuestion)
 vgBtn.addEventListener("click", getQuestion)
 
 /*-------------------------------- Functions --------------------------------*/
+// grab the btn id 
+// if and else statement 
+// innerHTML to append 
 function getQuestion(evt){
-const newQuestion = {
-question: evt.target.id = 'bMusic'
+
+
+appendQuestion()
+getAnswer()
+render()
+}
+
+function appendQuestion(){
 
 }
-questions.push(newQuestion)
-render()
+
+function getAnswer(){
+
 }
