@@ -1,10 +1,11 @@
 /*-------------------------------- Constants --------------------------------*/
-
-
+import { randomMusicQuestions, randomQuestions, randomGamesQuestions,randomMoviesQuestions } from '../data/quiz.js'
 
 /*-------------------------------- Variables --------------------------------*/
 
-
+let questions = []
+let answers = []
+let correctAnswer = []
 
 /*------------------------ Cached Element References ------------------------*/
 const musicBtn = document.querySelector('#bMusic')
@@ -21,5 +22,10 @@ vgBtn.addEventListener("click", getQuestion)
 
 /*-------------------------------- Functions --------------------------------*/
 function getQuestion(evt){
-    
+const newQuestion = {
+question: evt.target.id = 'bMusic'
+
+}
+questions.push(newQuestion)
+render()
 }
