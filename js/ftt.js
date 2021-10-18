@@ -6,8 +6,8 @@ let questions;
 
 /*------------------------ Cached Element References ------------------------*/
 const categories = document.querySelectorAll('.cat')
+const answers =document.querySelectorAll('.list-group-item')
 const questionDisplay = document.querySelector('#question-display')
-
 /*----------------------------- Event Listeners -----------------------------*/
 
 categories.forEach(function(btn){
@@ -18,9 +18,7 @@ btn.addEventListener("click", mainCat)
 
 
 /*-------------------------------- Functions --------------------------------*/
-// grab the btn id 
-// if and else statement 
-// innerHTML to append 
+//
 function mainCat(evt){
 if(evt.target.id === 'bMusic' ){
 questions = music
@@ -33,10 +31,18 @@ if(evt.target.id === 'bRandom' ){
 }
 if(evt.target.id === 'bVgame'){
     questions = videoGames
+    console.log(questions)
 }
 randomQ()
 }
+// created a function for random questions 
 function randomQ(){ 
 let idx = Math.floor(Math.random()*questions.length);
 console.log(questions[idx])
 }
+
+
+// function render(){
+// questionDisplay.innerHTML = 
+// }
+// render()
