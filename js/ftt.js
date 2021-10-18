@@ -1,42 +1,42 @@
 /*-------------------------------- Constants --------------------------------*/
-import { randomMusicQuestions, randomQuestions, randomGamesQuestions,randomMoviesQuestions } from '../data/quiz.js'
-
+import { music,movies, videoGames,random } from '../data/quiz.js'
 /*-------------------------------- Variables --------------------------------*/
 
-let questions = []
-let answers = []
-let correctAnswer = []
+let questions;
 
 /*------------------------ Cached Element References ------------------------*/
-const musicBtn = document.querySelector('#bMusic')
-const moviesBtn = document.querySelector('#bMovies')
-const randomBtn = document.querySelector('#bRandom')
-const vgBtn = document.querySelector('#bVgame')
+const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-musicBtn.addEventListener("click", getQuestion)
-moviesBtn.addEventListener("click", getQuestion)
-randomBtn.addEventListener("click", getQuestion)
-vgBtn.addEventListener("click", getQuestion)
+categories.forEach(function(btn){
+btn.addEventListener("click", mainCat)
+})
+
+
+
 
 /*-------------------------------- Functions --------------------------------*/
 // grab the btn id 
 // if and else statement 
 // innerHTML to append 
-function getQuestion(evt){
-
-
-appendQuestion()
-getAnswer()
-render()
+function mainCat(evt){
+if(evt.target.id === 'bMusic' ){
+questions = music
 }
-
-function appendQuestion(){
-
+if(evt.target.id === 'bMovies' ){
+    questions = movies
 }
-
-function getAnswer(){
-
+if(evt.target.id === 'bRandom' ){
+        questions = random
+}
+if(evt.target.id === 'bVgame'){
+    questions = videoGames
+}
+randomQ()
+}
+function randomQ(){ 
+let idx = Math.floor(Math.random()*questions.length);
+console.log(questions[idx])
 }

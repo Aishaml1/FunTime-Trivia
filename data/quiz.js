@@ -3,46 +3,40 @@
 const music =[ 
 {
     question: `finish the lyrics. 'Oh, you make my earth quake, riding around______________.' -'Earthquake'. Tyler the creator ?`,
-    a: `'your love is breaking me up and it's making my heart ache'`,
-    b: `'your love is shakin me up and it's making my heart break'`,
-    c: `'your love is is making my heart break'`,
-    answer: 'b'
+choices:[`'your love is breaking me up and it's making my heart ache'`,`'your love is shakin me up and it's making my heart break'`,`'your love is is making my heart break'`],
+    answer: 1,
+    asked: false
 },
 {
     question: `Kanye West sampled Lauryn Hill's 'Doo Wop (That Thing)' on Donda, what song was it?`,
-    a: `Believe What I Say`,
-    b: `Love Lockdown`,
-    c: `Jail`,
-    answer: 'a'
+    choices:[`Believe What I Say`,`Love Lockdown`,`Jail`],
+    answer: 0,
+    asked: false
 },
 
 { 
     question:`Whats is Billie Eilish biggest hit song?`,
-    a: `Happier Than Ever`,
-    b: `Bad Guy`,
-    c: `Bury A friend`,
-    answer: 'b'
+    choices:[`Happier Than Ever`,`Bad Guy`,`Bury A friend`],
+    answer: 1,
+    asked: false
 },
 { 
     question:`Justin bieber has a song called 'Peaches' featuring what other two artist ? `,
-    a: `Daniel Caesar and Giveon`,
-    b: `Daniel Caesar and Drake`,
-    c: `Wizkid, Giveon`,
-    answer: 'a'
+    choices:[`Daniel Caesar and Giveon`,`Daniel Caesar and Drake`,`Wizkid, Giveon`],
+    answer: 0,
+    asked: false
 },
 { 
     question:`Finish the lyrics. 'call me by your name, ____________________. -'MONTERO'. Lil Nas X `,
-    a: `'Tell me you love me now'`,
-    b: `'I'll be waiting'`,
-    c: `'Tell me you love me in private'`,
-    answer: 'c'
+    choices:[ `'Tell me you love me now'`,`'I'll be waiting'`,`'Tell me you love me in private'`],
+    answer: 2,
+    asked: false
 },
 { 
     question:`Choose the correct part of the chorus to the song Essence by Wizkid ft Tems `,
-    a: `'You don't need no other body'`,
-    b: `'Time is of the essence'`,
-    c: `'Promise to treat your love fair'`,
-    answer: 'a'
+    choices:[`'You don't need no other body'`,`'Time is of the essence'`,`'Promise to treat your love fair'`],
+    answer: 0,
+    asked: false
 }
 ];
 
@@ -50,45 +44,39 @@ const music =[
 const movies =[
 {
     question: `What was the name of the Avengers movie that came out in 2019 ?`,
-    a: `Infinity War`,
-    b: `Endgame`,
-    c: `Age of Ultron`,
-    answer:  `b`
+    choices:[`Infinity War`, `Endgame`,`Age of Ultron`],
+    answer:  1,
+    asked: false
 },
 {
     question: `what is the famous line in Black Panther?`,
-    a: `Wakanda forever !`,
-    b:  `Black Panther forever !`,
-    c:  `We serve Wakanda !`,
-    answer: `a`
+    choices:[ `Wakanda forever !`,`Black Panther forever !`,`We serve Wakanda !`],
+    answer: 0,
+    asked: false
 },
 {
     question: `what’s the name of the actor that’s plays in Venom: Let There Be Carnage ? `,
-    a: `Tom Brady`,
-    b: `Jeff Hardy`,
-    c: `Tom Hardy`,
-    answer: `c`
+    choices:[ `Tom Brady`,`Jeff Hardy`,`Tom Hardy`],
+    answer: 2,
+    asked: false
 }, 
 {
     question: `What planet is Superman from ? `,
-    a: `Tamaran`,
-    b: `Krypton` ,
-    c: `Earth`,
-    answer: `b`
+    choices:[ `Tamaran`,`Krypton` ,`Earth`],
+    answer: 1,
+    asked: false
 },
 {
     question:`Who gave the voice for Nala in the remake of 'The Lion King' in 2019?`,
-    a: `Moira Kelly`,
-    b: `Laura Williams`,
-    c: `Beyoncé`,
-    answer: `c`
+    choices:[ `Moira Kelly`,`Laura Williams`,`Beyoncé`],
+    answer: 2,
+    asked: false
 },
 {
     question:`Who is the commander of the Suicide Squas?`,
-    a: `Amanda Waller`,
-    b: `The Joker`,
-    c: `Harley Quinn`,
-    answer: `a`
+    choices:[ `Amanda Waller`,`The Joker`, `Harley Quinn`],
+    answer: 0,
+    asked: false
     }
 ];
 
@@ -96,113 +84,101 @@ const movies =[
 const videoGames = [
 {
     question: `'What is the all time top selling nintendo switch game ?'`,
-    a: `Super Smash Bros`,
-    b: `Animal Crossing: New Horizons`,
-    c: `Mario Kart 8 Deluxe`,
-    answer: 'c'
+    choices:[ `Super Smash Bros`, `Animal Crossing: New Horizons`,`Mario Kart 8 Deluxe`],
+    answer: 2,
+    asked: false
 },
 {
     question: `Whats are the main characters in kingdom hearts?`,
-    a: `Sora, Riku, Kairi`,
-    b: `Sora, Minnie Mouse, Mickey Mouse`,
-    c: `Ventus, Terra, Peter Pan,`,
-    answer: 'a'
+choices:[ `Sora, Riku, Kairi`, `Sora, Minnie Mouse, Mickey Mouse`, `Ventus, Terra, Peter Pan,`],
+    answer: 0,
+    asked: false
     },
     { question:`How many characters are there in Super Smash Bros?`,
-    a: `79`,
-    b: `74`,
-    c: `73`,
-    answer: 'b'
+    choices:[`79`,`74`,`73`],
+    answer: 1,
+    asked: false
     },
 { 
     question:`What is the currency in Fornite?`,
-    a : `Z-BUCKS`,
-    b: `C-BUCKS`,
-    c: `V-BUCKS`,
-    answer: 'c'
+    choices: [`Z-BUCKS`, `C-BUCKS`, `V-BUCKS`],
+    answer: 2,
+    asked: false
 },
 { 
     question:`what athlete was on the cover of legend edition 2k20? `,
-    a: `Kobe Bryant`,
-    b: `Michael Jordan`,
-    c: `Dwayne Wade`,
-    answer: 'c'
+    choices:[`Kobe Bryant`,`Michael Jordan`,`Dwayne Wade`],
+    answer: 2,
+    asked: false
     },
 { 
     question:`What is being collected to determine a winner in the game Super Mario Party? `,
-    a: `coins and stars`,
-    b: `coins`,
-    c: `allies and coins`,
-    answer: 'a'
+    choices: [`coins and stars`, `coins`,`allies and coins`],
+    answer: 0,
+    asked: false
+    
 }
 ];
 
 const random = [
     {
         question: `What are the nucleotide bases of DNA`,
-        a: `ACGT`,
-        b: `AGTU`,
-        c: `TGUA`,
-        answer: 'a'
+        choices: [ `ACGT`,`AGTU`,`TGUA`],
+        answer: 0,
+        asked: false
     },
     {
         question: `Who was the president of the US from 2009-2017?`,
-        a: `George W. Bush`,
-        b: `Barack Obama`,
-        c: `Joe Biden`,
-        answer: 'b'
+        choices: [`George W. Bush`,`Barack Obama`,  `Joe Biden`],
+        answer: 1,
+        asked: false
         },
         { question:`Which planet is closer to Earth? `,
-        a: `Venus`,
-        b: `Mars`,
-        c: `Mercury`,
-        answer: 'c'
+        choices:[ `Venus`,`Mars`, `Mercury`],
+        answer: 2,
+        asked: false
         },
     { 
         question:`The medical term Bradycardia means?`,
-        a : `fast heart rate`,
-        b: `slow heart rate`,
-        c: `just right`,
-        answer: 'b'
+        choices:[ `fast heart rate`,`slow heart rate`, `just right`],
+        answer: 1,
+        asked: false
     },
     { 
         question:`What is the capital of Japan? `,
-        a: `Saki`,
-        b: `Kobe`,
-        c: `Tokyo`,
-        answer: 'c'
+        choices: [`Saki`,`Kobe`,`Tokyo`],
+        answer: 2,
+        asked: false
         },
     { 
         question:`Who owns Tesla? `,
-        a: `Bill Gates`,
-        b: `Elon Musk`,
-        c: `Stefan Quandt`,
-        answer: 'b'
+        choices:[`Bill Gates`,`Elon Musk`,`Stefan Quandt`],
+        answer: 1,
+        asked: false
     }
     ]
 
 // map question and return a random question from each category. 
 
-function randomMusicQuestions(){ 
-        return music[Math.floor(Math.random()*music.length)];
-}
-        console.log(randomMusicQuestions())
-function randomQuestions(){
-        return random[Math.floor(Math.random()*random.length)];
-}
-        console.log(randomQuestions())
+
+// }
+//         console.log(randomMusicQuestions())
+// function randomQuestions(){
+//         return random[Math.floor(Math.random()*random.length)];
+// }
+//         console.log(randomQuestions())
 
 
-function randomMoviesQuestions(){
-        return movies[Math.floor(Math.random()*movies.length)];
-}
-        console.log(randomMoviesQuestions())
+// function randomMoviesQuestions(){
+//         return movies[Math.floor(Math.random()*movies.length)];
+// }
+//         console.log(randomMoviesQuestions())
 
-function randomGamesQuestions(){
-        return videoGames[Math.floor(Math.random()*videoGames.length)];
-}
-    console.log(randomGamesQuestions())
+// function randomGamesQuestions(){
+//         return videoGames[Math.floor(Math.random()*videoGames.length)];
+// }
+//     console.log(randomGamesQuestions())
 
 
-export{randomMusicQuestions, randomQuestions, randomGamesQuestions,randomMoviesQuestions };
+export{music,movies, videoGames,random };
 
