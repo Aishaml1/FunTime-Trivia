@@ -3,7 +3,7 @@ import { music,movies, videoGames,random } from '../data/quiz.js'
 
 const wrongAnswer = new Audio("../audio/259172__xtrgamr__uhoh.wav")
 const correctAnswer = new Audio("../audio/448274__henryrichard__sfx-success.wav")
-
+const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 /*-------------------------------- Variables --------------------------------*/
 
 let questions
@@ -39,6 +39,10 @@ function mainCat(evt){
     if(evt.target.id === 'bVgame'){
         questions = videoGames
     }
+    setTimeout(function(){
+        catBubble.play();
+    },10);
+
     randomQ()
 }
 //random questions 
