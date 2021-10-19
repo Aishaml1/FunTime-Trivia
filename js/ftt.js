@@ -3,7 +3,7 @@ import { music,movies, videoGames,random } from '../data/quiz.js'
 /*-------------------------------- Variables --------------------------------*/
 
 let questions
-results
+// score
 /*------------------------ Cached Element References ------------------------*/
 const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
@@ -41,7 +41,7 @@ function mainCat(evt){
 // idx = questions are random 
 function randomQ(){ 
     let idx = Math.floor(Math.random()*questions.length);
-    
+    console.log(randomQ)
     render(idx)
 }
 
@@ -50,21 +50,25 @@ function render(idx){
 //questions[idx].question would show each question 
     questionDisplay.innerHTML = questions[idx].question
 
-
     renderChoices(questions[idx])
 }
-
 function renderChoices(question){
-    console.log(question.answer)
     answerSection.innerHTML =""
-    question.choices.forEach(function(choice){
-        const options = document.createElement('button')
-        options.innerText = choice
-        answerSection.appendChild(options) 
-        
+    question.choices.forEach(function(choice,idx){
+        let option = document.createElement('button')
+        option.innerText = choice
+        option.value = idx
+        option.addEventListener('click', handleClick)
+        answerSection.appendChild(option) 
     })
     renderTimer()
 }
+function handleClick(){
+
+
+}
+
+
 // time is counting down at 15 secs 
 // if time is less than one, it will go to the next question
 function renderTimer(){
@@ -79,11 +83,18 @@ function renderTimer(){
     console.log(timer)
     }, 1000)
     
-    renderResults()
+    // NextQuestion(timer)
 }
+
+
+// console.log(timer)
+
+// function NextQuestion (){
+
+// }
 // show results after finishing all four categories.
 // use if and else statement results++⭐
 // get total 
-function renderResults(){
-let results = 0;
-}
+// function renderResults(){
+// let results = 0;
+// }
