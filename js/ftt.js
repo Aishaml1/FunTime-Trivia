@@ -2,8 +2,8 @@
 import { music,movies, videoGames,random } from '../data/quiz.js'
 /*-------------------------------- Variables --------------------------------*/
 
-let questions
-
+questions
+results
 /*------------------------ Cached Element References ------------------------*/
 const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
@@ -67,10 +67,18 @@ function RenderTimer(){
     let timer = setInterval(() =>{
     countDown.textContent = `${timeLeft} seconds remaining`
     timeLeft -= 1
-    if(timeLeft < 0) {
+    if(timeLeft < -1) {
     countDown.textContent = 'Next Question'
     clearInterval(timer)
     }
     console.log(timer)
     }, 1000)
+    
+    renderResults()
+}
+//show results after finishing all four categories.
+// use if and else statement results++⭐
+//get total 
+function renderResults(){
+let results = 0;
 }
