@@ -66,24 +66,24 @@ function renderChoices(question){
     // renderTimer()
 }
 // time is counting down at 15 secs 
-//if time is less than one, it will go to the next question
-// function renderTimer(){
-//     let timeLeft = 15
-//     let timer = setInterval(() =>{
-//     countDown.textContent = `${timeLeft} seconds remaining`
-//     timeLeft -= 1
-//     if(timeLeft < -1) {
-//     countDown.textContent = 'Next Question'
-//     clearInterval(timer)
-//     }
-//     console.log(timer)
-//     }, 1000)
+// if time is less than one, it will go to the next question
+function renderTimer(){
+    let timeLeft = 15
+    let timer = setInterval(() =>{
+    countDown.textContent = `${timeLeft} seconds remaining`
+    timeLeft -= 1
+    if(timeLeft < -1) {
+    countDown.textContent = 'Next Question'
+    clearInterval(timer)
+    }
+    console.log(timer)
+    }, 1000)
     
-//     renderResults()
-// }
-//show results after finishing all four categories.
+    renderResults()
+}
+// show results after finishing all four categories.
 // use if and else statement results++⭐
-//get total 
+// get total 
 function renderResults(){
 let results = 0;
 }
