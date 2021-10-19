@@ -2,14 +2,18 @@
 import { music,movies, videoGames,random } from '../data/quiz.js'
 /*-------------------------------- Variables --------------------------------*/
 
-questions
+let questions
 results
 /*------------------------ Cached Element References ------------------------*/
 const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
 const answerSection = document.querySelector('#answers')
+const resetBtn =document.querySelector('#reset-btn')
 const countDown = document.querySelector('#countdown')
 /*----------------------------- Event Listeners -----------------------------*/
+// lightDarkBtn.addEventListener("click", toggleLightDark)
+
+resetBtn.addEventListener("click", mainCat)
 
 categories.forEach(function(btn){
 btn.addEventListener("click", mainCat)
@@ -51,6 +55,7 @@ function render(idx){
 }
 
 function renderChoices(question){
+    console.log(question.answer)
     answerSection.innerHTML =""
     question.choices.forEach(function(choice){
         const options = document.createElement('button')
@@ -58,24 +63,24 @@ function renderChoices(question){
         answerSection.appendChild(options) 
         
     })
-    RenderTimer()
+    // renderTimer()
 }
 // time is counting down at 15 secs 
 //if time is less than one, it will go to the next question
-function RenderTimer(){
-    let timeLeft = 15
-    let timer = setInterval(() =>{
-    countDown.textContent = `${timeLeft} seconds remaining`
-    timeLeft -= 1
-    if(timeLeft < -1) {
-    countDown.textContent = 'Next Question'
-    clearInterval(timer)
-    }
-    console.log(timer)
-    }, 1000)
+// function renderTimer(){
+//     let timeLeft = 15
+//     let timer = setInterval(() =>{
+//     countDown.textContent = `${timeLeft} seconds remaining`
+//     timeLeft -= 1
+//     if(timeLeft < -1) {
+//     countDown.textContent = 'Next Question'
+//     clearInterval(timer)
+//     }
+//     console.log(timer)
+//     }, 1000)
     
-    renderResults()
-}
+//     renderResults()
+// }
 //show results after finishing all four categories.
 // use if and else statement results++⭐
 //get total 
