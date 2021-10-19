@@ -1,5 +1,9 @@
 /*-------------------------------- Constants --------------------------------*/
 import { music,movies, videoGames,random } from '../data/quiz.js'
+
+const wrongAnswer = new Audio("../audio/259172__xtrgamr__uhoh.wav")
+const correctAnswer = new Audio("../audio/448274__henryrichard__sfx-success.wav")
+
 /*-------------------------------- Variables --------------------------------*/
 
 let questions
@@ -68,12 +72,15 @@ function handleClick(evt){
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
         evt.path[0].style.background= 'green'
-        console.log('U GOT IT RIGHT')
+        setTimeout(function(){
+            correctAnswer.play();
+        },10);
     }else{
         evt.path[0].style.background= 'red'
-        console.log('wrong answer')
+        setTimeout(function(){
+            wrongAnswer.play();
+        },10);
     }
-    
 }
 
 // time is counting down at 15 secs 
