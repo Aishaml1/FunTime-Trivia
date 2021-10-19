@@ -41,7 +41,6 @@ function mainCat(evt){
 // idx = questions are random 
 function randomQ(){ 
     let idx = Math.floor(Math.random()*questions.length);
-    console.log(randomQ)
     render(idx)
 }
 
@@ -49,25 +48,33 @@ function render(idx){
 // questions are displayed in HTML. 
 //questions[idx].question would show each question 
     questionDisplay.innerHTML = questions[idx].question
-
     renderChoices(questions[idx])
 }
 function renderChoices(question){
+    const thisAnswer = question.answer
     answerSection.innerHTML =""
-    question.choices.forEach(function(choice,idx){
+    question.choices.forEach(function(choice, idx){
+        const isCorrect = thisAnswer === idx
         let option = document.createElement('button')
         option.innerText = choice
-        option.value = idx
+        option.value = isCorrect
         option.addEventListener('click', handleClick)
         answerSection.appendChild(option) 
     })
     renderTimer()
 }
-function handleClick(){
-
-
+function handleClick(evt){
+    console.log('event', evt.path[1])
+    evt.preventDefault()
+    const isCorrect = evt.target.value
+    if(isCorrect === 'true'){
+    evt.path[0].style.background= 'green'
+        console.log('U GOT IT RIGHT')
+    }else{
+        console.log('wrong answer')
+    }
+    
 }
-
 
 // time is counting down at 15 secs 
 // if time is less than one, it will go to the next question
@@ -80,21 +87,18 @@ function renderTimer(){
     countDown.textContent = 'Next Question'
     clearInterval(timer)
     }
-    console.log(timer)
     }, 1000)
     
-    // NextQuestion(timer)
+    NextQuestion(timer)
 }
 
 
-// console.log(timer)
-
-// function NextQuestion (){
-
-// }
+function NextQuestion (timer){
+console.log('this is here')
+}
 // show results after finishing all four categories.
 // use if and else statement results++⭐
 // get total 
-// function renderResults(){
-// let results = 0;
-// }
+function renderResults(){
+let results = 0;
+}
