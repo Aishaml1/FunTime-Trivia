@@ -63,7 +63,7 @@ function renderChoices(question){
         answerSection.appendChild(options) 
         
     })
-    // renderTimer()
+    renderTimer()
 }
 // time is counting down at 15 secs 
 // if time is less than one, it will go to the next question
