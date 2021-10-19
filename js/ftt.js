@@ -64,13 +64,13 @@ function renderChoices(question){
     renderTimer()
 }
 function handleClick(evt){
-    console.log('event', evt.path[1])
     evt.preventDefault()
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
-    evt.path[0].style.background= 'green'
+        evt.path[0].style.background= 'green'
         console.log('U GOT IT RIGHT')
     }else{
+        evt.path[0].style.background= 'red'
         console.log('wrong answer')
     }
     
