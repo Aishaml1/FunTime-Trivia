@@ -2,13 +2,13 @@
 import { music,movies, videoGames,random } from '../data/quiz.js'
 /*-------------------------------- Variables --------------------------------*/
 
-let questions;
+let questions
 
 /*------------------------ Cached Element References ------------------------*/
 const categories = document.querySelectorAll('.cat')
-const answers =document.querySelectorAll('.list-group-item')
 const questionDisplay = document.querySelector('#question-display')
-const answerSection =document.querySelector('#answers')
+const answerSection = document.querySelector('#answers')
+const countDown = document.querySelector('#countdown')
 /*----------------------------- Event Listeners -----------------------------*/
 
 categories.forEach(function(btn){
@@ -46,21 +46,31 @@ function render(idx){
 //questions[idx].question would show each question 
     questionDisplay.innerHTML = questions[idx].question
 
+
     renderChoices(questions[idx])
 }
 
 function renderChoices(question){
     answerSection.innerHTML =""
-    console.log(question.choices)
     question.choices.forEach(function(choice){
-        console.log(answerSection)
-        const option = document.createElement('button')
-        option.innerText = choice
-
-        answerSection.appendChild(option)
+        const options = document.createElement('button')
+        options.innerText = choice
+        answerSection.appendChild(options) 
+        
     })
-    renderCorrectchoice()
+    RenderTimer()
 }
-function renderCorrectchoice(){
-    
+// time is counting down at 15 secs 
+//if time is less than one, it will go to the next question
+function RenderTimer(){
+    let timeLeft = 15
+    let timer = setInterval(() =>{
+    countDown.textContent = `${timeLeft} seconds remaining`
+    timeLeft -= 1
+    if(timeLeft < 0) {
+    countDown.textContent = 'Next Question'
+    clearInterval(timer)
+    }
+    console.log(timer)
+    }, 1000)
 }
