@@ -6,14 +6,14 @@ const correctAnswer = new Audio("../audio/448274__henryrichard__sfx-success.wav"
 const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 /*-------------------------------- Variables --------------------------------*/
 
-let questions
-// score
+let questions 
 /*------------------------ Cached Element References ------------------------*/
 const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
 const answerSection = document.querySelector('#answers')
 const resetBtn =document.querySelector('#reset-btn')
 const countDown = document.querySelector('#countdown')
+const total = document.querySelector('#total')
 /*----------------------------- Event Listeners -----------------------------*/
 // lightDarkBtn.addEventListener("click", toggleLightDark)
 
@@ -41,7 +41,7 @@ function mainCat(evt){
     }
     setTimeout(function(){
         catBubble.play();
-    },10);
+    },5);
 
     randomQ()
 }
@@ -75,18 +75,26 @@ function handleClick(evt){
     evt.preventDefault()
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
-        evt.path[0].style.background= 'green'
+        evt.path[0].style.background = 'green'
+        score()
         setTimeout(function(){
             correctAnswer.play();
         },10);
     }else{
-        evt.path[0].style.background= 'red'
+        evt.path[0].style.background = 'red'
         setTimeout(function(){
             wrongAnswer.play();
         },10);
-    }
-}
 
+        renderTimer()
+    }
+    function score(){
+    let score = 20
+    total.innerHTML = score
+
+    }
+    
+}
 // time is counting down at 15 secs 
 // if time is less than one, it will go to the next question
 function renderTimer(){
@@ -98,18 +106,9 @@ function renderTimer(){
     countDown.textContent = 'Next Question'
     clearInterval(timer)
     }
-    }, 1000)
-    
-    NextQuestion(timer)
-}
+    },1000)
 
-
-function NextQuestion (timer){
-console.log('this is here')
 }
 // show results after finishing all four categories.
-// use if and else statement results++⭐
-// get total 
-function renderResults(){
-let results = 0;
-}
+
+
