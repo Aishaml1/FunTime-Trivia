@@ -5,7 +5,6 @@ const wrongAnswer = new Audio("../audio/259172__xtrgamr__uhoh.wav")
 const correctAnswer = new Audio("../audio/448274__henryrichard__sfx-success.wav")
 const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 /*-------------------------------- Variables --------------------------------*/
-
 let questions 
 /*------------------------ Cached Element References ------------------------*/
 const categories = document.querySelectorAll('.cat')
@@ -18,7 +17,6 @@ const total = document.querySelector('#total')
 // lightDarkBtn.addEventListener("click", toggleLightDark)
 
 resetBtn.addEventListener("click", mainCat)
-
 categories.forEach(function(btn){
 btn.addEventListener("click", mainCat)
 })
@@ -42,7 +40,6 @@ function mainCat(evt){
     setTimeout(function(){
         catBubble.play();
     },5);
-
     randomQ()
 }
 //random questions 
@@ -67,8 +64,9 @@ function renderChoices(question){
         option.innerText = choice
         option.value = isCorrect
         option.addEventListener('click', handleClick)
-        answerSection.appendChild(option) 
+        answerSection.appendChild(option)  
     })
+    nextQuestion(question)
     renderTimer()
 }
 function handleClick(evt){
@@ -76,7 +74,7 @@ function handleClick(evt){
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
         evt.path[0].style.background = 'green'
-        score()
+        score(evt)
         setTimeout(function(){
             correctAnswer.play();
         },10);
@@ -85,16 +83,8 @@ function handleClick(evt){
         setTimeout(function(){
             wrongAnswer.play();
         },10);
-
-        renderTimer()
+        }
     }
-    function score(){
-    let score = 20
-    total.innerHTML = score
-
-    }
-    
-}
 // time is counting down at 15 secs 
 // if time is less than one, it will go to the next question
 function renderTimer(){
@@ -107,8 +97,26 @@ function renderTimer(){
     clearInterval(timer)
     }
     },1000)
-
 }
-// show results after finishing all four categories.
+
+  //score should be equal to every correct answer
+    // there should be a total for every correct answer passed
+    //if answer chosen is not correct go to the next question, use does not get points
+function score(){
+    let score = 20
+        score++
+    total.innerHTML = score ++
+    }
+    // every time an answer is clicked go on to next question
+function nextQuestion(question){
+    let currentQuestion = question.question + 1
+    console.log(currentQuestion)
+}
+        
+
+
+
+
+
 
 
