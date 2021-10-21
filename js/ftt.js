@@ -8,12 +8,11 @@ const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 let questions 
 let score = 0
 let timer 
+// gloabal array for current questions
 let currentQuestions = []
-let questionsAsked = 0
 /*------------------------ Cached Element References ------------------------*/
-//hidden
+// trivia is hidden until game starts
 const triviaQA = document.querySelector('#triviaQA') 
-
 const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
 const answerSection = document.querySelector('#answers')
@@ -21,7 +20,6 @@ const resetBtn =document.querySelector('#reset-btn')
 const lightDarkBtn =document.querySelector('#light-dark-button')
 const body = document.querySelector("body")
 const countDown = document.querySelector('#countdown')
-const total = document.querySelector('#total')
 const finalScore = document.querySelector('#final-score')
 const playAgainbtn = document.querySelector("#play-again")
 const alertDisply = document.querySelector('#alert')
@@ -34,7 +32,6 @@ btn.addEventListener("click", mainCat)
 })
 
 /*-------------------------------- Functions --------------------------------*/
-// mainCat is able to work because iy is called in a function above
 //mainCat diplays each category in an object
 function mainCat(evt){
     triviaQA.hidden = false
@@ -57,14 +54,13 @@ function mainCat(evt){
 }
 
 
-// gloabal array for current questions
-//random questions 
-// idx = questions are random 
+
+//queestions are random and will stop at 6 
+//if currentQuestions.length does not = questions.length get random 
+//question. if current questions includes the same indx as questions
 function randomQ(){ 
     if(currentQuestions.length !== questions.length){
         let idx = Math.floor(Math.random() * (questions.length));
-        // console.log(idx)
-        // console.log(currentQuestions)
         if(currentQuestions.includes(idx)){
             randomQ()
             return 
@@ -72,45 +68,43 @@ function randomQ(){
         // for every index , push idx into array
         currentQuestions.push(idx)
         render(idx)
-    }else{
-        
-    
     }
     
 
 }
 
 function render(idx){
-// questions are displayed in HTML. 
-//questions[idx].question would show each question 
+//questions[idx].question would show each question on the display
     questionDisplay.innerHTML = questions[idx].question
     renderChoices(questions[idx])
 }
-
 
 
 function renderChoices(question){
     const thisAnswer = question.answer
     answerSection.innerHTML =""
     question.choices.forEach(function(choice, idx){
+        //Boolean to see if the answer is correct or not correct
         const isCorrect = thisAnswer === idx
+         //append button for choices
         let option = document.createElement('button')
         option.innerText = choice
         option.value = isCorrect
         option.addEventListener('click', handleClick)
-        answerSection.appendChild(option)  
+        answerSection.appendChild(option)    
     })
     renderTimer()
+    
 }
 // if answer chosen is not correct go to the next question, user does not get points
 function handleClick(evt){
     evt.preventDefault()
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
-        evt.path[0].style.background = 'green'
+        
         scoreGame()
     }else{
-        evt.path[0].style.background = 'red'
+        // evt.path[0].style.background = 'red'
     }
     if(currentQuestions.length === 6){
         displayResults()
@@ -137,15 +131,19 @@ function renderTimer(){
 // there should be a total for every correct answer passed
 function scoreGame(){
     score++
-    total.innerHTML = score
+    finalScore.innerHTML = score
     
 }
 function displayResults(){
     triviaQA.hidden = true
     alertDisply.hidden = false
     playAgainbtn.hidden = false
-    finalScore.innerHTML = `${score} out of 6`     
-
+    finalScore.innerHTML = `${score} out of 6` 
+    clearInterval(timer)
+    categories.forEach(function(btn){
+        btn.removeEventListener("click", mainCat)
+    })
+    
 }
 
 function playAgain(){

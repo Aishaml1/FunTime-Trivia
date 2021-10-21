@@ -2,7 +2,7 @@
 
 const music =[ 
 {
-    question: `finish the lyrics. 'Oh, you make my earth quake, riding around______________.' -'Earthquake'. Tyler the creator ?`,
+    question: `Finish the lyrics. 'Oh, you make my earth quake, riding around______________.' -'Earthquake'. Tyler the creator ?`,
 choices:[`'your love is breaking me up and it's making my heart ache'`,`'your love is shakin me up and it's making my heart break'`,`'your love is is making my heart break'`],
     answer: 1,
 },
@@ -31,7 +31,7 @@ choices:[`'your love is breaking me up and it's making my heart ache'`,`'your lo
     
 },
 { 
-    question:`Choose the correct part of the chorus to the song Essence by Wizkid ft Tems `,
+    question:`Choose the correct part of the chorus to the song Essence by Wizkid ft Tems. `,
     choices:[`'You don't need no other body'`,`'Time is of the essence'`,`'Promise to treat your love fair'`],
     answer: 0,
     
@@ -47,13 +47,13 @@ const movies =[
     
 },
 {
-    question: `what is the famous line in Black Panther?`,
+    question: `What is the famous line in Black Panther?`,
     choices:[ `Wakanda forever !`,`Black Panther forever !`,`We serve Wakanda !`],
     answer: 0,
     
 },
 {
-    question: `what’s the name of the actor that’s plays in Venom: Let There Be Carnage ? `,
+    question: `What’s the name of the actor that’s plays in Venom: Let There Be Carnage ? `,
     choices:[ `Tom Brady`,`Jeff Hardy`,`Tom Hardy`],
     answer: 2,
     
@@ -71,7 +71,7 @@ const movies =[
     
 },
 {
-    question:`Who is the commander of the Suicide Squas?`,
+    question:`Who is the commander of the Suicide Squad?`,
     choices:[ `Amanda Waller`,`The Joker`, `Harley Quinn`],
     answer: 0,
     
@@ -99,12 +99,12 @@ choices:[ `Sora, Riku, Kairi`, `Sora, Minnie Mouse, Mickey Mouse`, `Ventus, Terr
     },
 { 
     question:`What is the currency in Fornite?`,
-    choices: [`Z-BUCKS`, `C-BUCKS`, `V-BUCKS`],
+    choices: [`Z Bucks`, `C Bucks`, `V Bucks`],
     answer: 2,
     
 },
 { 
-    question:`what athlete was on the cover of legend edition 2k20? `,
+    question:`What athlete was on the cover of the legend edition 2k20? `,
     choices:[`Kobe Bryant`,`Michael Jordan`,`Dwayne Wade`],
     answer: 2,
     
@@ -120,13 +120,13 @@ choices:[ `Sora, Riku, Kairi`, `Sora, Minnie Mouse, Mickey Mouse`, `Ventus, Terr
 
 const random = [
     {
-        question: `What are the nucleotide bases of DNA`,
-        choices: [ `ACGT`,`AGTU`,`TGUA`],
+        question: `What does DNA stand for ?`,
+        choices: [ `Deoxyribonucleic Acid`,`Deoxynucleic Acid`,`Deoxy Acid`],
         answer: 0,
         
     },
     {
-        question: `Who was the president of the US from 2009-2017?`,
+        question: `Who was the president of the United States from 2009-2017?`,
         choices: [`George W. Bush`,`Barack Obama`,  `Joe Biden`],
         answer: 1,
         
@@ -154,27 +154,6 @@ const random = [
         answer: 1,
     }
     ]
-
-// map question and return a random question from each category. 
-
-
-// }
-//         console.log(randomMusicQuestions())
-// function randomQuestions(){
-//         return random[Math.floor(Math.random()*random.length)];
-// }
-//         console.log(randomQuestions())
-
-
-// function randomMoviesQuestions(){
-//         return movies[Math.floor(Math.random()*movies.length)];
-// }
-//         console.log(randomMoviesQuestions())
-
-// function randomGamesQuestions(){
-//         return videoGames[Math.floor(Math.random()*videoGames.length)];
-// }
-//     console.log(randomGamesQuestions())
 
 
 export{music,movies, videoGames,random };

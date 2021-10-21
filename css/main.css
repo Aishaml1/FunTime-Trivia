@@ -1,5 +1,5 @@
 body {
---body-bg:rgb(240, 204, 210);
+--body-img:url(../images/animation.gif);
 --btn-text-color: #5c0a0a;
 --card-text-color: #3e3e3e;
 --header-bg: #007bbe;
@@ -9,7 +9,9 @@ body {
 --light-dark-btn-content: "Dark Mode";
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  background-color: var(--body-bg);
+  background-image: var(--body-img);
+  background-size: cover;
+  
 }
 body.dark{
 background-color: var(--body-bg);
