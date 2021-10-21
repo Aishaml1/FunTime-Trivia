@@ -119,3 +119,11 @@ border-radius: 50%;
 justify-self: center;
 width: 70%;
 }
+#alert{
+grid-column:3 ;
+grid-row: 3/5;
+margin-left: 45px;
+border-radius: 20px;
+width:85vh;
+background-color: rgba(138, 128, 148, 0.075);
+}

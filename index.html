@@ -18,8 +18,12 @@
 <main class ='trivia'>
 <!-- Area where questions and aswers are displayed -->
 <section id ='bMain'></section>
+<div class="alert alert-secondary" role="alert" id = 'alert' hidden>
+<div id = 'final-score'></div>
+    <button id='play-again' type="button" class="btn btn-outline-primary" hidden> Play Again</button>
+</div>
 <!-- all questions and answers -->
-<div class="card" id='triviaQA'>
+<div class="card" id='triviaQA' hidden> 
 <!-- Area for questions -->
 <div class="card-body" id='question-display'>
 </div>
@@ -36,7 +40,6 @@
 <div id ='bVgame' class = 'cat'>videoGame Bubble</div>
 <div id ='results' hidden >Results</div>
 <div id ='total'>0</div>
-
 <div id ='countdown'>Time</div>
 </main>
 </body>

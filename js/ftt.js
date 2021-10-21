@@ -5,9 +5,15 @@ const wrongAnswer = new Audio("../audio/259172__xtrgamr__uhoh.wav")
 const correctAnswer = new Audio("../audio/448274__henryrichard__sfx-success.wav")
 const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 /*-------------------------------- Variables --------------------------------*/
-let questions , score
+let questions 
+let score = 0
+let timer 
+let currentQuestions = []
+let questionsAsked = 0
 /*------------------------ Cached Element References ------------------------*/
-const triviaQA = document.querySelector('#triviaQA')
+//hidden
+const triviaQA = document.querySelector('#triviaQA') 
+
 const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
 const answerSection = document.querySelector('#answers')
@@ -16,10 +22,12 @@ const lightDarkBtn =document.querySelector('#light-dark-button')
 const body = document.querySelector("body")
 const countDown = document.querySelector('#countdown')
 const total = document.querySelector('#total')
-const result = document.querySelector('#results')
+const finalScore = document.querySelector('#final-score')
+const playAgainbtn = document.querySelector("#play-again")
+const alertDisply = document.querySelector('#alert')
 /*----------------------------- Event Listeners -----------------------------*/
 lightDarkBtn.addEventListener("click", toggleLightDark)
-console.log(lightDarkBtn)
+playAgainbtn.addEventListener('click', playAgain)
 resetBtn.addEventListener("click", mainCat)
 categories.forEach(function(btn){
 btn.addEventListener("click", mainCat)
@@ -29,6 +37,7 @@ btn.addEventListener("click", mainCat)
 // mainCat is able to work because iy is called in a function above
 //mainCat diplays each category in an object
 function mainCat(evt){
+    triviaQA.hidden = false
     if(evt.target.id === 'bMusic' ){
         questions = music
     }
@@ -44,18 +53,32 @@ function mainCat(evt){
     setTimeout(function(){
         catBubble.play();
     },5);
-
     randomQ()
 }
 
 
+// gloabal array for current questions
 //random questions 
 // idx = questions are random 
 function randomQ(){ 
-    let idx = Math.floor(Math.random()*questions.length);
-    render(idx)
-}
+    if(currentQuestions.length !== questions.length){
+        let idx = Math.floor(Math.random() * (questions.length));
+        // console.log(idx)
+        // console.log(currentQuestions)
+        if(currentQuestions.includes(idx)){
+            randomQ()
+            return 
+        }
+        // for every index , push idx into array
+        currentQuestions.push(idx)
+        render(idx)
+    }else{
+        
+    
+    }
+    
 
+}
 
 function render(idx){
 // questions are displayed in HTML. 
@@ -77,60 +100,58 @@ function renderChoices(question){
         option.addEventListener('click', handleClick)
         answerSection.appendChild(option)  
     })
-
-    renderTimer( )
-
-
-
+    renderTimer()
 }
+// if answer chosen is not correct go to the next question, user does not get points
 function handleClick(evt){
     evt.preventDefault()
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
-        renderScore(evt)
         evt.path[0].style.background = 'green'
-        setTimeout(function(){
-            correctAnswer.play();
-        },10);
+        scoreGame()
     }else{
         evt.path[0].style.background = 'red'
-        setTimeout(function(){
-            wrongAnswer.play();
-        },10);
-        }
     }
+    if(currentQuestions.length === 6){
+        displayResults()
+    }else{
+        randomQ()
+    }
+    
+}
 
-
-// time is counting down at 15 secs 
-// if time is less than one, it will go to the next question
+// time is counting down at 10 secs 
+// if time is less then 0, it will go to the next question
 function renderTimer(){
     let timeLeft = 10
-    let timer = setInterval(() =>{
+    clearInterval(timer)
+    timer = setInterval(() =>{
     countDown.textContent = `${timeLeft} seconds remaining`
     timeLeft -= 1
     if(timeLeft < 0) {
-    clearInterval(timer)
-    randomQ()
+        randomQ()
     }
     },1000)
 }
-
 // score should be equal to every correct answer
 // there should be a total for every correct answer passed
-// if answer chosen is not correct go to the next question, user does not get points
-
-
-function renderScore(evt){
-score = 0
-
-total.innerHTML =  score++ 
-randomQ()
+function scoreGame(){
+    score++
+    total.innerHTML = score
+    
 }
-endGame()
-
-function endGame(){
+function displayResults(){
+    triviaQA.hidden = true
+    alertDisply.hidden = false
+    playAgainbtn.hidden = false
+    finalScore.innerHTML = `${score} out of 6`     
 
 }
+
+function playAgain(){
+    location.reload()
+}
+
 function toggleLightDark() {
     body.className = body.className === "dark" ? "" : "dark"
     console.log(toggleLightDark)
@@ -140,11 +161,3 @@ function checkDarkPref() {
     toggleLightDark()
     }
 }
-
-
-
-
-
-
-
-
