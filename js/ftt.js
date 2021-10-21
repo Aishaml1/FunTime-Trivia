@@ -87,7 +87,7 @@ function handleClick(evt){
     evt.preventDefault()
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
-        renderScore()
+        renderScore(evt)
         evt.path[0].style.background = 'green'
         setTimeout(function(){
             correctAnswer.play();
@@ -103,7 +103,7 @@ function handleClick(evt){
 
 // time is counting down at 15 secs 
 // if time is less than one, it will go to the next question
-function renderTimer( ){
+function renderTimer(){
     let timeLeft = 10
     let timer = setInterval(() =>{
     countDown.textContent = `${timeLeft} seconds remaining`
@@ -120,17 +120,14 @@ function renderTimer( ){
 // if answer chosen is not correct go to the next question, user does not get points
 
 
-function renderScore(){
+function renderScore(evt){
 score = 0
-if(questions.filter){
-    total.innerHTML =  score++ 
-}
 
-console.log('here',questions)
-        
-    randomQ()
-    endGame()
+total.innerHTML =  score++ 
+randomQ()
 }
+endGame()
+
 function endGame(){
 
 }
