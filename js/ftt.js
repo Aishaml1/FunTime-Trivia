@@ -125,6 +125,9 @@ function renderTimer(){
     if(timeLeft < 0) {
         randomQ()
     }
+    if(timeLeft < -1){
+    displayResults()
+    }
     },1000)
 }
 // score should be equal to every correct answer
@@ -139,7 +142,7 @@ function displayResults(){
     alertDisply.hidden = false
     playAgainbtn.hidden = false
     finalScore.innerHTML = `${score} out of 6` 
-    clearInterval(timer)
+    
     categories.forEach(function(btn){
         btn.removeEventListener("click", mainCat)
     })
