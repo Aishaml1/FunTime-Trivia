@@ -5,7 +5,7 @@ const wrongAnswer = new Audio("../audio/259172__xtrgamr__uhoh.wav")
 const correctAnswer = new Audio("../audio/448274__henryrichard__sfx-success.wav")
 const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 /*-------------------------------- Variables --------------------------------*/
-let questions 
+let questions , score
 /*------------------------ Cached Element References ------------------------*/
 const triviaQA = document.querySelector('#triviaQA')
 const categories = document.querySelectorAll('.cat')
@@ -54,9 +54,7 @@ function mainCat(evt){
 function randomQ(){ 
     let idx = Math.floor(Math.random()*questions.length);
     render(idx)
-
 }
-
 
 
 function render(idx){
@@ -69,7 +67,6 @@ function render(idx){
 
 
 function renderChoices(question){
-    console.log(question)
     const thisAnswer = question.answer
     answerSection.innerHTML =""
     question.choices.forEach(function(choice, idx){
@@ -90,6 +87,7 @@ function handleClick(evt){
     evt.preventDefault()
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
+        renderScore()
         evt.path[0].style.background = 'green'
         setTimeout(function(){
             correctAnswer.play();
@@ -120,16 +118,20 @@ function renderTimer( ){
 // score should be equal to every correct answer
 // there should be a total for every correct answer passed
 // if answer chosen is not correct go to the next question, user does not get points
-function score(isCorrect){
-    let score = 0
-    if(isCorrect){
-        score += 10;
-        total.innerHTML = score
-        }
-    randomQ()
-    endGame(scoring)
+
+
+function renderScore(){
+score = 0
+if(questions.filter){
+    total.innerHTML =  score++ 
 }
-function endGame(scoring){
+
+console.log('here',questions)
+        
+    randomQ()
+    endGame()
+}
+function endGame(){
 
 }
 function toggleLightDark() {
