@@ -1,5 +1,5 @@
 body {
---body-img:url(../images/animation.gif);
+--body-bg: linear-gradient(10deg,white, rgb(57, 211, 203), rgb(200, 147, 200), #e73c7e, #81c2da, #2f9746);
 --btn-text-color: #5c0a0a;
 --card-text-color: #3e3e3e;
 --header-bg: #007bbe;
@@ -9,10 +9,24 @@ body {
 --light-dark-btn-content: "Dark Mode";
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  background-image: var(--body-img);
-  background-size: cover;
-  
+  background: var(--body-bg);
+  background-size: 500%;
+  height: 100vh;
+  animation: gradient 10s ease infinite;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 10%;
+	}
+	50% {
+		background-position: 100% 10%;
+	}
+	100% {
+		background-position: 0% 10%;
+	}
+}
+
 body.dark{
 background-color: var(--body-bg);
 --body-bg: #462840;
@@ -33,7 +47,7 @@ justify-content: space-around;
 align-items: center;
 height: 8vh;
 border: solid 2px;
-
+margin-bottom: 80px;
 }
 
 .timer{
