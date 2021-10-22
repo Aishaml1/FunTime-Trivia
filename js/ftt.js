@@ -3,6 +3,7 @@ import { music,movies, videoGames,random } from '../data/quiz.js'
 const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 const winner = new Audio('../audio/397434__foolboymedia__crowd-cheer.wav')
 const tryAgain = new Audio('../audio/410575__yummie__game-losing-screen-background-music.mp3')
+const wrongAnswer = new Audio ('../audio/101354__timbre__remix-of-54047-guitarguy1985-buzzer-variants-[AudioTrimmer.com].wav')
 /*-------------------------------- Variables --------------------------------*/
 let questions 
 let score = 0
@@ -83,7 +84,7 @@ function renderChoices(question){
     const thisAnswer = question.answer
     answerSection.innerHTML =""
     question.choices.forEach(function(choice, idx){
-        //Boolean to see if the answer is correct or not correct
+        //see if the answer is correct or not correct
         const isCorrect = thisAnswer === idx
          //append button for choices
         let option = document.createElement('button')
@@ -103,10 +104,11 @@ function handleClick(evt){
     evt.preventDefault()
     const isCorrect = evt.target.value
     if(isCorrect === 'true'){
-        
         scoreGame()
     }else{
-        // evt.path[0].style.background = 'red'
+        setTimeout(function(){
+            wrongAnswer.play();
+        },5);
     }
     if(currentQuestions.length === 6){
         displayResults()
