@@ -1,8 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
 import { music,movies, videoGames,random } from '../data/quiz.js'
-
-const wrongAnswer = new Audio("../audio/259172__xtrgamr__uhoh.wav")
-const correctAnswer = new Audio("../audio/448274__henryrichard__sfx-success.wav")
 const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
 /*-------------------------------- Variables --------------------------------*/
 let questions 
@@ -16,7 +13,6 @@ const triviaQA = document.querySelector('#triviaQA')
 const categories = document.querySelectorAll('.cat')
 const questionDisplay = document.querySelector('#question-display')
 const answerSection = document.querySelector('#answers')
-const resetBtn =document.querySelector('#reset-btn')
 const lightDarkBtn =document.querySelector('#light-dark-button')
 const body = document.querySelector("body")
 const countDown = document.querySelector('#countdown')
@@ -26,7 +22,6 @@ const alertDisply = document.querySelector('#alert')
 /*----------------------------- Event Listeners -----------------------------*/
 lightDarkBtn.addEventListener("click", toggleLightDark)
 playAgainbtn.addEventListener('click', playAgain)
-resetBtn.addEventListener("click", mainCat)
 categories.forEach(function(btn){
 btn.addEventListener("click", mainCat)
 })
@@ -35,6 +30,7 @@ btn.addEventListener("click", mainCat)
 //mainCat diplays each category in an object
 function mainCat(evt){
     triviaQA.hidden = false
+    countDown.hidden = false
     if(evt.target.id === 'bMusic' ){
         questions = music
     }
@@ -91,7 +87,10 @@ function renderChoices(question){
         option.innerText = choice
         option.value = isCorrect
         option.addEventListener('click', handleClick)
-        answerSection.appendChild(option)    
+        answerSection.appendChild(option)  
+        option.style.margin = "5px";
+        option.style.borderRadius = "23px";
+        
     })
     renderTimer()
     
@@ -120,7 +119,7 @@ function renderTimer(){
     let timeLeft = 10
     clearInterval(timer)
     timer = setInterval(() =>{
-    countDown.textContent = `${timeLeft} seconds remaining`
+    countDown.textContent = timeLeft;
     timeLeft -= 1
     if(timeLeft < 0) {
         randomQ()
@@ -141,8 +140,9 @@ function displayResults(){
     triviaQA.hidden = true
     alertDisply.hidden = false
     playAgainbtn.hidden = false
-    finalScore.innerHTML = `${score} out of 6` 
-    
+    finalScore.innerHTML = `Your Results: ${score} out of 6` 
+    finalScore.style.color= 'white'
+    countDown.hidden = true
     categories.forEach(function(btn){
         btn.removeEventListener("click", mainCat)
     })
