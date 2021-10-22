@@ -7,7 +7,8 @@ Aisha Lugg
 ## Description
 FunTime-Trivia game targeted for everyone. It allows a player to choose from one of four categories and test their knowlege or compete with another to get a winner score.
 
-https://jovial-varahamihira-1511db.netlify.app/
+
+Click [Play here](https://jovial-varahamihira-1511db.netlify.app/) 
 
 ## How to Play
 
