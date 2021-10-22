@@ -38,5 +38,12 @@ https://jovial-varahamihira-1511db.netlify.app/
 
 * CSS
 
+# Future Improvements
+
+* bounus questions for each category
+*  mobile gaming
+* add progress bar
+
+
 
 
