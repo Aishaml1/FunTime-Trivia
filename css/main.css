@@ -26,6 +26,7 @@ background-color: var(--body-bg);
 --bMain-background-color:rgba(8, 17, 68, 0.431);
 --bMain-box-shadow:3px 3px 5px 5px #ccc;;
 --light-dark-btn-content: "Light Mode";
+--inverted-btn-text-color:rgb(185, 185, 197);
 --countdown-color: rgba(255, 255, 255, 0.952);
 --trivaQA-background-color:rgba(0, 0, 0, 0);
 --trivaQA-color:white;
@@ -39,6 +40,7 @@ background-color: var(--body-bg);
 0 0 102px rgb(96, 112, 216),
 0 0 151px rgb(4, 0, 255);
 --text-color: white;
+--light-dark-btn-bg:rgb(137, 10, 175);
 }
 
 @keyframes gradient {
@@ -53,6 +55,16 @@ background-color: var(--body-bg);
 	}
 }
 
+
+#light-dark-button {
+  background-color: var(--light-dark-btn-bg);
+}
+
+#light-dark-button::after {
+  border: none;
+  color: var(--inverted-btn-text-color);
+  content: var(--light-dark-btn-content);
+}
 
 .mainftt{
 display: flex;
