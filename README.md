@@ -1,15 +1,15 @@
 # FunTime-Trivia
 
-# Author
+## Author
 
 Aisha Lugg
 
-# Description
+## Description
 FunTime-Trivia game targeted for everyone. It allows a player to choose from one of four categories and test their knowlege or compete with another to get a winner score.
 
 https://jovial-varahamihira-1511db.netlify.app/
 
-# How to Play
+## How to Play
 
 * The player starts off with four category icons to choose from.
 
@@ -23,12 +23,12 @@ https://jovial-varahamihira-1511db.netlify.app/
 
 * Results will appear at the end of the game with an option to play again. 
 
-# Images
+## Images
 
 ![](https://i.imgur.com/sYq1I1f.png?2)
 ![](https://i.imgur.com/vv7AsAc.png?3)
 
-# Technologies Used
+## Technologies Used
 
 * javaScript
 
@@ -40,7 +40,7 @@ https://jovial-varahamihira-1511db.netlify.app/
 
 ## Future Improvements
 
-* bounus questions for each category
+* bonus questions for each category
 *  mobile gaming
 * add progress bar
 
