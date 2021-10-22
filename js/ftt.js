@@ -144,7 +144,7 @@ function displayResults(){
     playAgainbtn.hidden = false
 
     if(score !== 6){
-    finalScore.innerHTML = `Maybe Next Time? ${score} out of 6` 
+    finalScore.innerHTML = `Maybe Next Time? <br/> ${score} out of 6` 
     finalScore.style.color= 'white'
     setTimeout(function(){
         tryAgain.play();
