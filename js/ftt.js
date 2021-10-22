@@ -1,6 +1,8 @@
 /*-------------------------------- Constants --------------------------------*/
 import { music,movies, videoGames,random } from '../data/quiz.js'
 const catBubble = new Audio('../audio/487532__ranner__bubble-sound.wav')
+const winner = new Audio('../audio/397434__foolboymedia__crowd-cheer.wav')
+const tryAgain = new Audio('../audio/410575__yummie__game-losing-screen-background-music.mp3')
 /*-------------------------------- Variables --------------------------------*/
 let questions 
 let score = 0
@@ -19,6 +21,7 @@ const countDown = document.querySelector('#countdown')
 const finalScore = document.querySelector('#final-score')
 const playAgainbtn = document.querySelector("#play-again")
 const alertDisply = document.querySelector('#alert')
+const ScoreDisplay =document.querySelector('#trackscore')
 /*----------------------------- Event Listeners -----------------------------*/
 lightDarkBtn.addEventListener("click", toggleLightDark)
 playAgainbtn.addEventListener('click', playAgain)
@@ -133,15 +136,25 @@ function renderTimer(){
 // there should be a total for every correct answer passed
 function scoreGame(){
     score++
-    finalScore.innerHTML = score
-    
+    ScoreDisplay.innerHTML = `Score: ${score}` 
 }
 function displayResults(){
     triviaQA.hidden = true
     alertDisply.hidden = false
     playAgainbtn.hidden = false
-    finalScore.innerHTML = `Your Results: ${score} out of 6` 
+
+    if(score !== 6){
+    finalScore.innerHTML = `Maybe Next Time? ${score} out of 6` 
     finalScore.style.color= 'white'
+    setTimeout(function(){
+        tryAgain.play();
+    },5);
+    }else{
+    finalScore.innerHTML = `You Won This Category`  
+    setTimeout(function(){
+        winner.play();
+    },5);
+    }
     countDown.hidden = true
     categories.forEach(function(btn){
         btn.removeEventListener("click", mainCat)
